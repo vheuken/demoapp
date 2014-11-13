@@ -29,12 +29,12 @@ dofile("get_rooms.lua")
 function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
   str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
-  -- TODO: room_path = global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
+  -- TO_IMPLEMENT: room_path = global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
   room_path_above = -1
   shop_type = "General"
 
   if get_room_y(y) ~= 0 then
-    -- TODO: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
+    -- TO_IMPLEMENT: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
   end
 
   if get_room_x(x) == start_room_x and get_room_y(y) == start_room_y then -- start room
@@ -82,10 +82,10 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
       str_temp = "11111111112222222222000000000000000000000008000000000000000000000000001111111111"
     end
   elseif room_path == 0 then -- side room
-    -- TODO: if current_level > 1 and not oGame.altar and math.random(1, 16) == 1 then
+    -- TO_IMPLEMENT: if current_level > 1 and not oGame.altar and math.random(1, 16) == 1 then
       n = 11
-      -- TODO: oGame.altar = true
-    -- TODO: elseif oGame.idol or get_room_y(y) == 3
+      -- TO_IMPLEMENT: oGame.altar = true
+    -- TO_IMPLEMENT: elseif oGame.idol or get_room_y(y) == 3
       n = math.random(1, 9)
     -- else
       n = math.random(1, 10)
