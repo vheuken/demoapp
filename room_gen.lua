@@ -27,16 +27,18 @@ The string representing a room or obstacle must be laid out unbroken:
 dofile("get_rooms.lua")
 
 function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
-  str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  local str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
   -- TO_IMPLEMENT: room_path = global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
-  room_path_above = -1
-  shop_type = "General"
+  local room_path_above = -1
+  local shop_type = "General"
 
   if get_room_y(y) ~= 0 then
     -- TO_IMPLEMENT: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
   end
-
+  
+  local n = 0
+  
   if get_room_x(x) == start_room_x and get_room_y(y) == start_room_y then -- start room
     if room_path == 2 then
       n = math.random(5, 8)
@@ -87,10 +89,10 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
       -- TO_IMPLEMENT: oGame.altar = true
     -- TO_IMPLEMENT: elseif oGame.idol or get_room_y(y) == 3
       n = math.random(1, 9)
-    -- else
+    -- TO_IMPLEMENT: else
       n = math.random(1, 10)
       if n == 10 then
-        --oGame.idol = true
+        -- TO_IMPLEMENT: oGame.idol = true
       end
       
       if n == 1 then -- upper plats
@@ -117,7 +119,7 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
         str_temp = "220000002200000000000000000000000000000000000000000000x0000002211112201111111111"
       end
   elseif room_path == 0 or room_path == 1 then -- main room
-    rand_num =  math.random(1, 12)
+    local rand_num =  math.random(1, 12)
     
     if rand_num == 1 then -- 1-6: basic rooms
       str_temp = "60000600000000000000000000000000000000000050000000000000000000000000001111111111"
@@ -142,12 +144,12 @@ end
 
 -- TESTING STUFF
 math.randomseed(os.time())
-x = 0
-y = 0
-start_room_x = 0
-start_room_y = 0
-end_room_x = 3
-end_room_y = 3
+local x = 0
+local y = 0
+local start_room_x = 0
+local start_room_y = 0
+local end_room_x = 3
+local end_room_y = 3
 
 room = room_gen_1(x, y, start_room_x, start_room_y)
 
