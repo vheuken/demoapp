@@ -24,22 +24,22 @@ strObs = "00000
 The string representing a room or obstacle must be laid out unbroken:
 ]]
 
-dofile("get_rooms.lua")
+local get_rooms = require "get_rooms"
 
 function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
   local str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
-  -- TO_IMPLEMENT: room_path = global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
+  local room_path -- TO_IMPLEMENT: - global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
   local room_path_above = -1
   local shop_type = "General"
 
-  if get_room_y(y) ~= 0 then
+  if get_rooms.get_rooms.get_room_y(y) ~= 0 then
     -- TO_IMPLEMENT: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
   end
 
   local n = 0
 
-  if get_room_x(x) == start_room_x and get_room_y(y) == start_room_y then -- start room
+  if get_rooms.get_rooms.get_room_x(x) == start_room_x and get_rooms.get_rooms.get_room_y(y) == start_room_y then -- start room
     if room_path == 2 then
       n = math.random(5, 8)
     else
@@ -63,7 +63,7 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
     elseif n == 8 then
       str_temp = "0000000000008000000000000000000000000L000111111P000111111L001111000L001111011111"
     end
-  elseif get_room_x(x) == end_room_x and get_room_y(y) == end_room_y then -- end room
+  elseif get_rooms.get_room_x(x) == end_room_x and get_rooms.get_room_y(y) == end_room_y then -- end room
     if room_path_above == 2 then
       n = math.random(2, 4)
     else
@@ -87,7 +87,7 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
     -- TO_IMPLEMENT: if current_level > 1 and not oGame.altar and math.random(1, 16) == 1 then
       n = 11
       -- TO_IMPLEMENT: oGame.altar = true
-    -- TO_IMPLEMENT: elseif oGame.idol or get_room_y(y) == 3
+    -- TO_IMPLEMENT: elseif oGame.idol or get_rooms.get_room_y(y) == 3
       n = math.random(1, 9)
     -- TO_IMPLEMENT: else
       n = math.random(1, 10)
