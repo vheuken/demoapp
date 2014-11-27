@@ -27,16 +27,18 @@ The string representing a room or obstacle must be laid out unbroken:
 dofile("get_rooms.lua")
 
 function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
-  str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  local str_temp = "00000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
   -- TODO: room_path = global.roomPath[scrGetRoomX(x), scrGetRoomY(y)];
-  room_path_above = -1
-  shop_type = "General"
+  local room_path_above = -1
+  local shop_type = "General"
 
   if get_room_y(y) ~= 0 then
     -- TODO: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
   end
 
+  local n = 0
+    
   if get_room_x(x) == start_room_x and get_room_y(y) == start_room_y then -- start room
     if room_path == 2 then
       n = math.random(5, 8)
@@ -103,18 +105,18 @@ end
 
 -- TESTING STUFF
 math.randomseed(os.time())
-x = 0
-y = 0
-start_room_x = 0
-start_room_y = 0
-end_room_x = 3
-end_room_y = 3
+local x = 0
+local y = 0
+local start_room_x = 0
+local start_room_y = 0
+local end_room_x = 3
+local end_room_y = 3
 
-room = room_gen_1(x, y, start_room_x, start_room_y)
+local room = room_gen_1(x, y, start_room_x, start_room_y)
 
 -- print room to console
 for i=1, 8 do
-  start_index = (i-1) * 10
+  local start_index = (i-1) * 10
   print(room:sub(start_index+1, start_index + 10))
 end
 
