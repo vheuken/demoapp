@@ -119,23 +119,113 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
         str_temp = "220000002200000000000000000000000000000000000000000000x0000002211112201111111111"
       end
   elseif room_path == 0 or room_path == 1 then -- main room
-    local rand_num =  math.random(1, 12)
+    local rand_num = math.random(1, 12)
 
     if rand_num == 1 then -- 1-6: basic rooms
       str_temp = "60000600000000000000000000000000000000000050000000000000000000000000001111111111"
     elseif rand_num == 2 then
       str_temp = "60000600000000000000000000000000000000005000050000000000000000000000001111111111"
+    elseif rand_num == 3 then
+      str_temp = "60000600000000000000000000000000050000000000000000000000000011111111111111111111"
+    elseif rand_num == 4 then
+      str_temp = "60000600000000000000000600000000000000000000000000000222220000111111001111111111"
+    elseif rand_num == 5 then 
+      str_temp = "11111111112222222222000000000000000000000050000000000000000000000000001111111111"
+    elseif rand_num == 6 then
+      str_temp = "11111111112111111112022222222000000000000050000000000000000000000000001111111111"
+    elseif rand_num == 7 then -- low ceiling 
+      str_temp = "11111111112111111112211111111221111111120111111110022222222000000000001111111111"
+    elseif rand_num == 8 then -- 8-9: ladders
+      if math.random(1, 2) == 1 then
+        str_temp = "1111111111000000000L111111111P000000000L5000050000000000000000000000001111111111"
+      else
+        str_temp = "1111111111L000000000P111111111L0000000005000050000000000000000000000001111111111"
+      end
+    elseif rand_num == 9 then
+      str_temp = "000000000000L0000L0000P1111P0000L0000L0000P1111P0000L1111L0000L1111L001111111111"
+    elseif rand_num == 10 then -- 10-11: upper plats
+      str_temp = "00000000000111111110001111110000000000005000050000000000000000000000001111111111"
+    elseif rand_num == 11 then
+      str_temp = "00000000000000000000000000000000000000000021111200021111112021111111121111111111"
+    elseif rand_num == 12 then -- treasure below
+      if math.rand(1, 2) == 1 then
+        str_temp = "2222222222000000000000000000L001111111P001050000L011000000L010000000L01111111111"
+      else
+        str_temp = "222222222200000000000L000000000P111111100L500000100L000000110L000000011111111111"
+      end
     end
   elseif room_path == 3 then -- main room
-
+    local rand_num = math.random(1, 8)
+    
+    if rand_num == 1 then -- 1-4: basic rooms
+      str_temp = "00000000000000000000000000000000000000000050000000000000000000000000001111111111"
+    elseif rand_num == 2 then
+      str_temp = "00000000000000000000000000000000000000005000050000000000000000000000001111111111"
+    elseif rand_num == 3 then
+      str_temp = "00000000000000000000000000000050000500000000000000000000000011111111111111111111"
+    elseif rand_num == 4 then
+      str_temp = "00000000000000000000000600000000000000000000000000000111110000111111001111111111"
+    elseif rand_num == 5 then -- 5-7: upper plats
+      str_temp = "00000000000111111110001111110000000000005000050000000000000000000000001111111111"
+    elseif rand_num == 6 then
+      str_temp = "00000000000000000000000000000000000000000021111200021111112021111111121111111111"
+    elseif rand_num == 7 then
+      str_temp = "10000000011112002111111200211100000000000022222000111111111111111111111111111111"
+    elseif rand_num == 8 then
+      if math.random(1, 2) == 1 then
+        str_temp = "0000000000000000000000000000L001111111P001050000L011000000L010000000L01111111111";
+      else
+        str_temp = "000000000000000000000L000000000P111111100L500000100L000000110L000000011111111111"
+      end
+    end
   elseif room_path == 4 then -- shop
-
+    str_temp = "111111111111111111111111221111111l000211...000W010...00000k0..Kiiii000bbbbbbbbbb"
+    local rand_num = math.random(1,7)
+    
+    if rand_num == 1 then
+      shop_type = "General"
+    elseif rand_num == 2 then
+      shop_type= "Bomb"
+    elseif rand_num == 3 then
+      shop_type = "Weapon"
+    elseif rand_num == 4 then
+      shop_type = "Rare"
+    elseif rand_num == 5 then
+      shop_type = "Clothing"
+    elseif rand_num == 6 then
+      shop_type = "Craps"
+      str_temp = "11111111111111111111111122111111Kl000211..bQ00W010.0+00000k0.q+dd00000bbbbbbbbbb"
+    elseif rand_num == 7 then
+      shop_type = "Kissing"
+      str_temp = "111111111111111111111111221111111l000211...000W010...00000k0..K00D0000bbbbbbbbbb"
+      -- TO_IMPLEMENT: oGame.damsel = true
+    end
   elseif room_path == 5 then -- shop
-
+    str_temp = "111111111111111111111111221111112000l11101W0000...0k00000...000iiiiK..bbbbbbbbbb"
+    local rand_num = math.random(1,7)
+    
+    if rand_num == 1 then
+      shop_type = "General"
+    elseif rand_num == 2 then
+      shop_type= "Bomb"
+    elseif rand_num == 3 then
+      shop_type = "Weapon"
+    elseif rand_num == 4 then
+      shop_type = "Rare"
+    elseif rand_num == 5 then
+      shop_type = "Clothing"
+    elseif rand_num == 6 then
+      shop_type = "Craps"
+      str_temp = "111111111111111111111111221111112000lK1101W0Q00b..0k00000+0.00000dd+q.bbbbbbbbbb"
+    elseif rand_num == 7 then
+      shop_type = "Kissing"
+      str_temp = "111111111111111111111111221111112000l11101W0000...0k00000...0000D00K..bbbbbbbbbb"
+      -- TO_IMPLEMENT: oGame.damsel = true
+    end    
   elseif room_path == 8 then -- snake pit
-
+    str_temp = "111000011111s0000s11111200211111s0000s11111200211111s0000s11111200211111s0000s11"
   elseif room_path == 9 then -- snake pit bottom
-
+    str_temp = "111000011111s0000s1111100001111100S0001111S0110S11111STTS1111111M111111111111111"
   else -- drop
   end
 
