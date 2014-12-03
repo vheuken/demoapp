@@ -33,13 +33,13 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
   local room_path_above = -1
   local shop_type = "General"
 
-  if get_rooms.get_rooms.get_room_y(y) ~= 0 then
+  if get_room_y(y) ~= 0 then
     -- TO_IMPLEMENT: room_path_above = global.roomPath[scrGetRoomX(x), scrGetRoomY(y-128)]
   end
 
   local n = 0
 
-  if get_rooms.get_rooms.get_room_x(x) == start_room_x and get_rooms.get_rooms.get_room_y(y) == start_room_y then -- start room
+  if get_room_x(x) == start_room_x and get_room_y(y) == start_room_y then -- start room
     if room_path == 2 then
       n = math.random(5, 8)
     else
@@ -227,6 +227,15 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
   elseif room_path == 9 then -- snake pit bottom
     str_temp = "111000011111s0000s1111100001111100S0001111S0110S11111STTS1111111M111111111111111"
   else -- drop
+    local rand_num = 0
+    if room_path == 7 then 
+      rand_num = math.random(4, 12)
+    elseif room_path_above ~= 2 then
+      rand_num = math.random(1, 12)
+    else
+      rand_num = math.random(1, 8)
+    end
+
   end
 
   return str_temp
