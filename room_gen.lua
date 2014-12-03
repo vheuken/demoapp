@@ -262,7 +262,19 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
       str_temp = "11111111112111111112021111112000211112000002112000000022000002200002201111001111"
     end
   end
-
+  
+  -- add obstacles
+  
+  for i=1,81 do
+    local j = 1
+    
+    local str_obs_1 = "00000"
+    local str_obs_2 = "00000"
+    local str_obs_3 = "00000"
+    local tile =  str_temp:sub(i, i)
+    
+  end
+  
   return str_temp
 end
 
