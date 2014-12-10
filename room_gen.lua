@@ -264,7 +264,6 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
   end
   
   -- add obstacles
-  
   for i=1,81 do
     local j = 1
     
@@ -273,6 +272,163 @@ function room_gen_1(x, y, start_room_x, start_room_y, end_room_x, end_room_y)
     local str_obs_3 = "00000"
     local tile =  str_temp:sub(i, i)
     
+    if tile == "8" then
+      local rand_num = math.random(1, 8)
+      
+      if rand_num == 1 then
+        str_obs_1 = "00900"
+        str_obs_2 = "01110"
+        str_obs_3 = "11111"
+      elseif rand_num == 2 then
+        str_obs_1 = "00900"
+        str_obs_2 = "02120"
+        str_obs_3 = "02120"
+      elseif rand_num == 3 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00000"
+        str_obs_3 = "92222"
+      elseif rand_num == 4 then
+        str_obs_1 = "00000" 
+        str_obs_2 = "00000"
+        str_obs_3 = "22229"
+      elseif rand_num == 5 then
+        str_obs_1 = "00000"
+        str_obs_2 = "11001"
+        str_obs_3 = "10091"
+      elseif rand_num == 6 then
+        str_obs_1 = "00000"
+        str_obs_2 = "10011"
+        str_obs_3 = "10091"
+      elseif rand_num == 7 then
+        str_obs_1 = "11111"
+        str_obs_2 = "10001"
+        str_obs_3 = "40094"
+      elseif rand_num == 8 then
+        str_obs_1 = "00000"
+        str_obs_2 = "12021"
+        str_obs_3 = "12921"
+      end
+    elseif tile == "5" then -- ground
+      local rand_num = math.random(1, 16)
+      
+      if rand_num == 1 then
+        str_obs_1 = "11111"
+        str_obs_2 = "00000"
+        str_obs_3 = "00000"
+      elseif rand_num == 2 then
+        str_obs_1 = "00000"
+        str_obs_2 = "11110"
+        str_obs_3 = "00000"
+      elseif rand_num == 3 then
+        str_obs_1 = "00000"
+        str_obs_2 = "01111"
+        str_obs_3 = "00000"
+      elseif rand_num == 4 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00000"
+        str_obs_3 = "11111"
+      elseif rand_num == 5 then
+        str_obs_1 = "00000"
+        str_obs_2 = "20200"
+        str_obs_3 = "17177"
+      elseif rand_num == 6 then
+        str_obs_1 = "00000"
+        str_obs_2 = "02020"
+        str_obs_3 = "71717"
+      elseif rand_num == 7 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00202"
+        str_obs_3 = "77171"
+      elseif rand_num == 8 then
+        str_obs_1 = "00000"
+        str_obs_2 = "22200"
+        str_obs_3 = "11100"
+      elseif rand_num == 9 then
+        str_obs_1 = "00000"
+        str_obs_2 = "02220"
+        str_obs_3 = "01110"
+      elseif rand_num == 10 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00222"
+        str_obs_3 = "00111"
+      elseif rand_num == 11 then
+        str_obs_1 = "11100"
+        str_obs_2 = "22200"
+        str_obs_3 = "00000"
+      elseif rand_num == 12 then
+        str_obs_1 = "01110"
+        str_obs_2 = "02220"
+        str_obs_3 = "00000"
+      elseif rand_num == 13 then
+        str_obs_1 = "00111"
+        str_obs_2 = "00222"
+        str_obs_3 = "00000"
+      elseif rand_num == 14 then
+        str_obs_1 = "00000"
+        str_obs_2 = "02220"
+        str_obs_3 = "21112"
+      elseif rand_num == 15 then
+        str_obs_1 = "00000"
+        str_obs_2 = "20100"
+        str_obs_3 = "77117"
+      elseif rand_num == 16 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00102"
+        str_obs_3 = "71177"
+      end
+    elseif tile == "6" then -- air
+      local rand_num = math.random(1,10)
+      
+      if rand_num == 1 then
+        str_obs_1 = "11111"
+        str_obs_2 = "00000"
+        str_obs_3 = "00000"
+      elseif rand_num == 2 then
+        str_obs_1 = "22222"
+        str_obs_2 = "00000"
+        str_obs_3 = "00000"
+      elseif rand_num == 3 then
+        str_obs_1 = "11100"
+        str_obs_2 = "00000"
+        str_obs_3 = "00000"
+      elseif rand_num == 4 then
+        str_obs_1 = "01110"
+        str_obs_2 = "02220"
+        str_obs_3 = "00000"
+      elseif rand_num == 5 then
+        str_obs_1 = "00111"
+        str_obs_2 = "00222"
+        str_obs_3 = "00000"
+      elseif rand_num == 6 then
+        str_obs_1 = "00000"
+        str_obs_2 = "01110"
+        str_obs_3 = "00000"
+      elseif rand_num == 7 then
+        str_obs_1 = "00000"
+        str_obs_2 = "01110"
+        str_obs_3 = "02220"
+      elseif rand_num == 8 then
+        str_obs_1 = "00000"
+        str_obs_2 = "02220"
+        str_obs_3 = "01110"
+      elseif rand_num == 9 then
+        str_obs_1 = "00000"
+        str_obs_2 = "00220"
+        str_obs_3 = "01111"
+      elseif rand_num == 10 then
+        str_obs_1 = "00000"
+        str_obs_2 = "22200"
+        str_obs_3 = "11100"
+      end
+    end
+    
+    if tile == "5" or tile == "6" or tile == "8" then
+      str_temp:gsub(str_temp:sub(j, 5), str_obs_1, 1)
+      j = j + 10
+      str_temp:gsub(str_temp:sub(j, 5), str_obs_2, 1)
+      j = j + 10
+      str_temp:gsub(str_temp:sub(j, 5), str_obs_3, 1)
+    end
   end
   
   return str_temp
