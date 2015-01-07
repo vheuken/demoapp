@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="45" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="RockTile" tilewidth="32" tileheight="32">
+  <image source="RockTile.png" width="192" height="192"/>
+ </tileset>
+ <objectgroup name="Entities">
+  <object name="Player-Android" type="Movable" x="463" y="292" width="24" height="63"/>
+  <object name="Player-Windows" type="Movable" x="59" y="73" width="30" height="50"/>
+  <object name="Player-Linux" type="Movable" x="503" y="291" width="24" height="63"/>
+  <object name="Player-iOS" type="Movable" x="538" y="294" width="24" height="63"/>
+  <object name="Player-OSX" type="Movable" x="576" y="299" width="24" height="63"/>
+ </objectgroup>
+ <layer name="collision" width="60" height="45">
+  <properties>
+   <property name="Collidable" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztz8EKwjAURNFQRbRbQbD2/7/TrruQEngTKufAkFVI7qW1dg3u1sZ6ht97hd/b01tLb5beWnqz9NbSm6X3mPu2x27zgXtn7e2lN0tvLb1ZemuN7n1vWzr26TzXTBbA35lGfwAAAACAn748zgaz
+  </data>
+ </layer>
+</map>
